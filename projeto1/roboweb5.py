@@ -30,7 +30,7 @@ for linha_planilha in range(0, linhas): # fazer uma contagem de linhas dentro da
     pesquisa.send_keys(Keys.RETURN) # referente ao clique do enter
     time.sleep(1) # so para dar tempo do robo processar
     resultado = driver.find_element(By.XPATH, '//*[@id="conteudo"]/div/section/div[2]/div/p/span/strong') # pegar o caminho do negrito que aparece DISPONIVEL e NÃO DISPONIVEL
-    texto = f'\nDomínio ({x}) = {resultado.text.upper()}' # o texto escolhido e as variáveis
+    texto = f'Domínio ({x}) = {resultado.text.upper()}! \n' # o texto escolhido e as variáveis
     arquivo.write(texto)
 
 arquivo.close()

@@ -1,2 +1,5 @@
 # Projeto01_Python
- Projeto de automatização de pesquisa de domínios 
+ Automatização de pesquisa.
+
+ Projeto de pesquias de domínio do site REISTRO.BR,
+ usando a biblioteca selenium.

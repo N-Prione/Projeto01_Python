@@ -5,6 +5,9 @@ from selenium.webdriver.common.by import By # identificar o método de localiza�
 import time
 import xlrd # biblioteca para ler a planilha
 
+# variavel para criar o arquivo de texto
+arquivo = open('Resultado.txt', 'w') # ela ira abrir um arquivo .txt, o W (write), ele que ira escrever no arquivo
+
 # usar a planilha
 workbook = xlrd.open_workbook('/home/nprione/Documentos/PYTHON/OficinaPython/ProjetoRobo/excel.xls') # variavel que ira abrir a planilha com os dominios
 planilha = workbook.sheet_by_name('Plan1') # especificar a planilha que ira trabalhar
@@ -27,7 +30,9 @@ for linha_planilha in range(0, linhas): # fazer uma contagem de linhas dentro da
     pesquisa.send_keys(Keys.RETURN) # referente ao clique do enter
     time.sleep(1) # so para dar tempo do robo processar
     resultado = driver.find_element(By.XPATH, '//*[@id="conteudo"]/div/section/div[2]/div/p/span/strong') # pegar o caminho do negrito que aparece DISPONIVEL e NÃO DISPONIVEL
-    print(f'Domínio -{x}- {resultado.text}') # ira aparecer uma mensagem com o dominio pesquisado e o resultado em formato texto
+    texto = f'\nDomínio ({x}) = {resultado.text.upper()}' # o texto escolhido e as variáveis
+    arquivo.write(texto)
 
+arquivo.close()
 # fechar o navegador
 driver.quit() # depois do tempo ele fecha sozinho
